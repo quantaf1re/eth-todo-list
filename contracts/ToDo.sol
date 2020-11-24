@@ -32,6 +32,10 @@ contract ToDo {
     }
 
     function modTask(uint _id, Status _newStatus) external onlyOwner {
+        require(_id >= 0 && _id < taskCount, "Task doesn't exist");
+        // Perhaps there should be a requirement to prevent marking a task
+        // as cancelled if it's already been completed, but TODO phone apps
+        // generally allow you to do this anyway so we'll allow it here too
         tasks[_id].status = _newStatus;
         emit ModTask(_id, _newStatus);
     }

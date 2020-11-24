@@ -2,6 +2,7 @@ from consts import *
 from brownie import reverts
 
 
+# Should execute
 def test_task_created(todoWithCreated):
     task = todoWithCreated.tasks(0)
     assert task[0] == 0
@@ -10,6 +11,7 @@ def test_task_created(todoWithCreated):
     assert todoWithCreated.taskCount() == 1
 
 
+# Should revert
 def test_createTask_revert_owner(a, todo):
     with reverts(ONLY_OWNER_MSG):
         todo.createTask("Junk description", { "from": a[1]})
