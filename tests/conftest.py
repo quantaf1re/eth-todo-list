@@ -1,4 +1,5 @@
 import pytest
+from consts import *
 
 
 # test isolation, always use!
@@ -15,5 +16,6 @@ def todo(a, ToDo):
 
 # contract deployment
 @pytest.fixture(scope="module")
-def taskCreated(a, todo):
-    todo.createTask("First task", { "from": a[0] })
+def todoWithCreated(a, todo):
+    todo.createTask(TASK_CREATED_DESC, { "from": a[0] })
+    yield todo

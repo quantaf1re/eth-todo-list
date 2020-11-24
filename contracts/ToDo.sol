@@ -20,7 +20,8 @@ contract ToDo {
         owner = msg.sender;
     }
 
-    function createTask(string memory _description) external onlyOwner {
+    function createTask(string calldata _description) external onlyOwner {
+        require(bytes(_description).length > 0, "Need a description!");
         // Technically this could overflow, but perhaps that's desirable
         // behaviour - you probably don't care about overwriting a task
         // from 2^256 tasks ago and don't want to redeploy a contract
