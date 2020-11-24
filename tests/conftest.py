@@ -16,6 +16,5 @@ def todo(a, ToDo):
 
 # contract deployment
 @pytest.fixture(scope="module")
-def todoWithCreated(a, todo):
-    todo.createTask(TASK_CREATED_DESC, { "from": a[0] })
-    yield todo
+def createTask(a, todo):
+    return todo.createTask(TASK_CREATED_DESC, { "from": a[0] })
