@@ -1,6 +1,11 @@
 from consts import *
 
 
+# Creates 2 tasks, progresses both, cancels one and
+# completes the other - tests state after every action
+# and the whole state of the contract at the end
+
+
 def test_create_complete_and_cancel_tasks(a, todo):
     # Create 1st task
     d1 = "Description1"

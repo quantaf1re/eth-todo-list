@@ -2,6 +2,10 @@ from consts import *
 from brownie import reverts
 
 
+# Tests the state of a newly created task and
+# whether creating an additional task reverts when it should
+
+
 # Should execute
 def test_task_created(todo, createTask):
     task = todo.tasks(0)

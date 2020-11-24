@@ -2,6 +2,10 @@ from consts import *
 from brownie import reverts
 
 
+# Tests the state of modified tasks and whether
+# modifying reverts when it should
+
+
 # Should execute
 def test_modTask_in_progress(a, todo, createTask):
     tx = todo.modTask(0, STATUS[IN_PROGRESS], { "from": a[0]})
